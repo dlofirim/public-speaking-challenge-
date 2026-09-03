@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Speaking Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Public Speaking Trainer</h1>
+      <p class="subtitle">Latihan bicara 1 menit • Topik random</p>
+    </header>
+
+    <!-- Main Card -->
+    <main class="card">
+      <!-- State: Start -->
+      <div id="state-start" class="state active">
+        <div class="icon">🎤</div>
+        <h2>Siap latihan public speaking?</h2>
+        <p>Kamu akan dapat topik random, waktu research 10 menit, lalu bicara selama 60 detik.</p>
+        <button id="btn-start" class="btn primary">Mulai Challenge</button>
+      </div>
+
+      <!-- State: Topic -->
+      <div id="state-topic" class="state">
+        <p class="label">Topik kamu hari ini</p>
+        <h2 id="topic-text" class="topic"></h2>
+        <div class="btn-group">
+          <button id="btn-new-topic" class="btn secondary">Ganti Topik</button>
+          <button id="btn-start-research" class="btn primary">Mulai Research (10 menit)</button>
+        </div>
+      </div>
+
+      <!-- State: Research -->
+      <div id="state-research" class="state">
+        <p class="label">Waktu Research</p>
+        <div class="timer" id="research-timer">10:00</div>
+        <p class="hint">Gunakan waktu ini untuk memikirkan ide, struktur, dan poin-poin penting. <strong>Tanpa AI</strong>.</p>
+        <div class="btn-group">
+          <button id="btn-skip-research" class="btn secondary">Lewati Research</button>
+          <button id="btn-start-speaking" class="btn primary" disabled>Mulai Bicara (60 detik)</button>
+        </div>
+      </div>
+
+      <!-- State: Speaking -->
+      <div id="state-speaking" class="state">
+        <p class="label">Sedang Berbicara</p>
+        <div class="timer big" id="speaking-timer">01:00</div>
+        <p class="topic-small" id="speaking-topic"></p>
+        <p class="hint">Bicaralah dengan tenang. Tidak apa-apa kalau terbata-bata.</p>
+        <button id="btn-finish" class="btn danger">Selesai Lebih Awal</button>
+      </div>
+
+      <!-- State: Done -->
+      <div id="state-done" class="state">
+        <div class="icon">🎉</div>
+        <h2>Bagus!</h2>
+        <p>Kamu sudah menyelesaikan 1 sesi public speaking.</p>
+        <div class="btn-group">
+          <button id="btn-again" class="btn primary">Coba Topik Baru</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Challenge 1 menit • No AI • Random Topic</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
