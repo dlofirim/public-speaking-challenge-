@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Speaking Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="main-title">PUBLIC SPEAKING TRAINER</h1>
+      <p class="subtitle" id="main-subtitle">LATIHAN BICARA & DEBAT • TOPIK RANDOM</p>
+    </header>
+
+    <main class="card">
+      <!-- ==================== STATE: HOME ==================== -->
+      <div id="state-home" class="state active">
+        <h2>PILIH MODE LATIHAN</h2>
+        <p class="desc">Pilih jenis latihan yang ingin kamu lakukan</p>
+        
+        <div class="home-grid">
+          <button class="home-btn debat" id="btn-go-debat">DEBAT</button>
+          <button class="home-btn pidato" id="btn-go-pidato">PIDATO</button>
+          <button class="home-btn support" id="btn-support">DUKUNG DEVELOPER</button>
+        </div>
+      </div>
+
+      <!-- ==================== STATE: PIDATO MODE ==================== -->
+      <div id="state-mode" class="state">
+        <button class="btn-back" id="btn-back-home-pidato">← KEMBALI</button>
+        <h2>PILIH TEMA TOPIK</h2>
+        <p class="desc">Pilih tema atau buat topik sendiri</p>
+        
+        <div class="mode-grid">
+          <button class="mode-btn" data-mode="hewan">HEWAN</button>
+          <button class="mode-btn" data-mode="makanan">MAKANAN</button>
+          <button class="mode-btn" data-mode="alam">ALAM & TEMPAT</button>
+          <button class="mode-btn" data-mode="kehidupan">KEHIDUPAN</button>
+          <button class="mode-btn" data-mode="teknologi">TEKNOLOGI</button>
+          <button class="mode-btn" data-mode="olahraga">OLAHRAGA</button>
+          <button class="mode-btn" data-mode="pendidikan">PENDIDIKAN</button>
+          <button class="mode-btn" data-mode="random">RANDOM</button>
+          <button class="mode-btn custom" data-mode="custom">CUSTOM</button>
+        </div>
+      </div>
+
+      <!-- ==================== STATE: DEBAT MODE ==================== -->
+      <div id="state-debat-mode" class="state">
+        <button class="btn-back" id="btn-back-home-debat">← KEMBALI</button>
+        <h2>PILIH TEMA MOSI</h2>
+        <p class="desc">Pilih tema atau buat mosi sendiri</p>
+        
+        <div class="mode-grid">
+          <button class="mode-btn debat-theme" data-theme="lingkungan">LINGKUNGAN</button>
+          <button class="mode-btn debat-theme" data-theme="teknologi">TEKNOLOGI</button>
+          <button class="mode-btn debat-theme" data-theme="pendidikan">PENDIDIKAN</button>
+          <button class="mode-btn debat-theme" data-theme="kesehatan">KESEHATAN</button>
+          <button class="mode-btn debat-theme" data-theme="mediasosial">MEDIA SOSIAL</button>
+          <button class="mode-btn debat-theme" data-theme="ekonomi">EKONOMI</button>
+          <button class="mode-btn debat-theme" data-theme="transportasi">TRANSPORTASI</button>
+          <button class="mode-btn debat-theme" data-theme="random">RANDOM</button>
+          <button class="mode-btn custom" id="btn-debat-custom">CUSTOM</button>
+        </div>
+      </div>
+
+      <!-- ==================== STATE: CUSTOM (PIDATO) ==================== -->
+      <div id="state-custom" class="state">
+        <button class="btn-back" id="btn-back-mode">← KEMBALI</button>
+        <h2>MODE CUSTOM</h2>
+        <p class="desc">Masukkan topik (minimal 3 • maksimal 30)</p>
+        
+        <div id="custom-inputs"></div>
+        
+        <button id="btn-add-topic" class="btn-add">+ TAMBAH TOPIK</button>
+        <p id="custom-error" class="error"></p>
+        
+        <div class="btn-group">
+          <button id="btn-start-custom" class="btn primary">MULAI CHALLENGE</button>
+        </div>
+      </div>
+
+      <!-- ==================== STATE: CUSTOM (DEBAT) ==================== -->
+      <div id="state-debat-custom" class="state">
+        <button class="btn-back" id="btn-back-debat-mode">← KEMBALI</button>
+        <h2>MODE CUSTOM DEBAT</h2>
+        <p class="desc">Masukkan mosi (minimal 3 • maksimal 30)</p>
+        
+        <div id="debat-custom-inputs"></div>
+        
+        <button id="btn-add-mosi" class="btn-add">+ TAMBAH MOSI</button>
+        <p id="debat-custom-error" class="error"></p>
+        
+        <div class="btn-group">
+          <button id="btn-start-debat-custom" class="btn primary">MULAI CHALLENGE</button>
+        </div>
+      </div>
+
+      <!-- ==================== STATE: TIME SELECT ==================== -->
+      <div id="state-time" class="state">
+        <button class="btn-back" id="btn-back-time">← KEMBALI</button>
+        <h2>ATUR WAKTU</h2>
+        <p class="desc">Pilih durasi research dan penyampaian</p>
+        
+        <div class="time-grid">
+          <div class="time-col">
+            <p class="time-label">WAKTU PENYAMPAIAN</p>
+            <button class="time-display" id="btn-speaking-time">1 MENIT</button>
+            <div class="time-options" id="speaking-options">
+              <button class="time-opt" data-seconds="60">1 MENIT</button>
+              <button class="time-opt" data-seconds="180">3 MENIT</button>
+              <button class="time-opt" data-seconds="300">5 MENIT</button>
+              <button class="time-opt" data-seconds="420">7 MENIT</button>
+            </div>
+          </div>
+          <div class="time-col">
+            <p class="time-label">WAKTU RESEARCH</p>
+            <button class="time-display" id="btn-research-time">10 MENIT</button>
+            <div class="time-options" id="research-options">
+              <button class="time-opt" data-seconds="600">10 MENIT</button>
+              <button class="time-opt" data-seconds="480">8 MENIT</button>
+              <button class="time-opt" data-seconds="360">6 MENIT</button>
+              <button class="time-opt" data-seconds="240">4 MENIT</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group" style="margin-top: 28px;">
+          <button id="btn-confirm-time" class="btn primary">LANJUT</button>
+        </div>
+      </div>
+
+      <!-- ==================== STATE: SPIN ==================== -->
+      <div id="state-spin" class="state">
+        <button class="btn-back" id="btn-back-spin">← KEMBALI</button>
+        <p class="label" id="spin-theme-label">TEMA</p>
+        
+        <div class="slot-machine">
+          <div class="slot-window">
+            <div class="slot-list" id="slot-list"></div>
+          </div>
+        </div>
+
+        <button id="btn-spin" class="btn primary">TENTUKAN TOPIK</button>
+      </div>
+
+      <!-- ==================== STATE: TOPIC ==================== -->
+      <div id="state-topic" class="state">
+        <p class="label" id="topic-label">TOPIK KAMU</p>
+        <h2 id="topic-text" class="topic"></h2>
+        <button id="btn-start-research" class="btn primary">MULAI RESEARCH</button>
+      </div>
+
+      <!-- ==================== STATE: RESEARCH ==================== -->
+      <div id="state-research" class="state">
+        <p class="label">WAKTU RESEARCH</p>
+        <div class="timer" id="research-timer">10:00</div>
+        <p class="hint">Pikirkan ide dan struktur. <strong>TANPA AI</strong>.</p>
+        <div class="btn-group">
+          <button id="btn-skip-research" class="btn secondary">LEWATI RESEARCH</button>
+          <button id="btn-start-speaking" class="btn primary" disabled>MULAI BICARA</button>
+        </div>
+      </div>
+
+      <!-- ==================== STATE: SPEAKING ==================== -->
+      <div id="state-speaking" class="state">
+        <p class="label">SEDANG BERBICARA</p>
+        <div class="timer big" id="speaking-timer">01:00</div>
+        <p class="topic-small" id="speaking-topic"></p>
+        <p class="hint">Bicaralah dengan tenang. Tidak perlu buru-buru.</p>
+        <button id="btn-finish" class="btn danger">SELESAI LEBIH AWAL</button>
+      </div>
+
+      <!-- ==================== STATE: DONE ==================== -->
+      <div id="state-done" class="state">
+        <div class="icon">🎉</div>
+        <h2>BAGUS!</h2>
+        <p>Kamu sudah menyelesaikan 1 sesi latihan.</p>
+        <button id="btn-again" class="btn primary">COBA LAGI</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>CHALLENGE • RANDOM TOPIC</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
